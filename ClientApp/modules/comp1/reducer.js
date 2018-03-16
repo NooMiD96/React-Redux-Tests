@@ -8,7 +8,19 @@ export default function reducer(state = State, action) {
                 ...state,
                 count: state.count + 1
             }
-
+        case actionTypes.DATA_REQUEST:
+            return {
+                ...state,
+                gettedData: 'Loading...'
+            }
+        case actionTypes.DATA_REQUEST_SUCCESS:
+            if(state.gettedData === 'Loading...')
+                return state;
+            else
+                return {
+                    ...state,
+                    gettedData: action.payload
+                }
         default:
             return state;
     }

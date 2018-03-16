@@ -5,20 +5,21 @@ import { Provider } from 'react-redux';
 import { configure, mount, shallow } from 'enzyme';
 import sinon from 'sinon';
 import Adapter from 'enzyme-adapter-react-16';
-import { AsyncComponentLoader } from "../../ClientApp/core/AsyncComponent";
-import Comp1, {Comp1 as Comp1Dumb } from '../../ClientApp/modules/comp1/components/comp1';
-import * as actions from "../../ClientApp/modules/comp1/actions";
-import * as actionTypes from "../../ClientApp/modules/comp1/actionTypes";
-import Counter from '../../ClientApp/modules/comp1/components/Counter';
-import CounterButton from '../../ClientApp/modules/comp1/components/CounterButton';
-import DependsOnState from '../../ClientApp/modules/comp1/components/DependsOnState';
+import { AsyncComponentLoader } from "../../../ClientApp/core/AsyncComponent";
+import Comp1, {Comp1 as Comp1Dumb } from '../../../ClientApp/modules/comp1/components/comp1';
+import * as actions from "../../../ClientApp/modules/comp1/actions";
+import * as actionTypes from "../../../ClientApp/modules/comp1/actionTypes";
+import Counter from '../../../ClientApp/modules/comp1/components/Counter';
+import CounterButton from '../../../ClientApp/modules/comp1/components/CounterButton';
+import DependsOnState from '../../../ClientApp/modules/comp1/components/DependsOnState';
 
 configure({ adapter: new Adapter() });
 
 describe('Test Comp1', () => {
     const initialState = {
             comp1: {
-                count: 0
+                count: 0,
+                gettedData: null
             }
         },
         mockStore = configureStore();
@@ -56,4 +57,12 @@ describe('Test Comp1', () => {
         expect(onButtonClick.calledOnce).toBe(true);
     });
 
+    it('+++ check requeast when gettedData === "Loading..."', () => {
+        const spy = sinon.spy();
+        const comp = mount(<Comp1Dumb gettedData={null} fetchGet={spy}/>)
+
+        comp.setProps({gettedData: 'Loading...'});
+        
+        expect(spy.calledOnce).toBe(true);
+    });
 });

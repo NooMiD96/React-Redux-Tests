@@ -2,8 +2,8 @@ import * as React from 'react';
 import ReactDOM from 'react-dom';
 import { configure, mount, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import Counter from '../../ClientApp/modules/comp1/components/Counter';
-import DependsOnState from '../../ClientApp/modules/comp1/components/DependsOnState';
+import Counter from '../../../ClientApp/modules/comp2/components/Counter';
+import DependsOnState from '../../../ClientApp/modules/comp2/components/DependsOnState';
 
 configure({ adapter: new Adapter() });
 

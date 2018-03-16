@@ -3,11 +3,11 @@ import ReactDOM from 'react-dom';
 import { configure, mount, shallow } from 'enzyme';
 import sinon from 'sinon';
 import Adapter from 'enzyme-adapter-react-16';
-import CounterButton from '../../ClientApp/modules/comp1/components/CounterButton';
+import CounterButton from '../../../ClientApp/modules/comp1/components/CounterButton';
 
 configure({ adapter: new Adapter() });
 
-describe('Test Counter', () => {
+describe('Test Comp1 Counter', () => {
     let ShallowComponent,
         onButtonClick;
 
