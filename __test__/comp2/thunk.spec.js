@@ -5,8 +5,8 @@ import configureMockStore from 'redux-mock-store'
 import thunk from 'redux-thunk'
 import 'whatwg-fetch';
 import Adapter from 'enzyme-adapter-react-16';
-import * as ActionThunk from '../../ClientApp/modules/comp1/thunk';
-import * as ActionTypes from '../../ClientApp/modules/comp1/actionTypes';
+import * as ActionThunk from '../../ClientApp/modules/comp2/thunk';
+import * as ActionTypes from '../../ClientApp/modules/comp2/actionTypes';
 
 configure({ adapter: new Adapter() });
 
@@ -19,7 +19,7 @@ describe('Test Action Thunk', () => {
     const data = '111';
     const middlewares = [ thunk ];
 
-    it('+++ Comp1 POST request', () => {
+    it('+++ Comp2 POST request', () => {
         let targetUrl;
         let targetData;
         //create custom response
@@ -58,7 +58,7 @@ describe('Test Action Thunk', () => {
             });
     });
 
-    it('+++ Comp1 GET request', () => {
+    it('+++ Comp2 GET request', () => {
         let targetUrl;
         let targetData;
         //create custom response
@@ -85,8 +85,7 @@ describe('Test Action Thunk', () => {
         fetchPost(store.dispatch)
             .then((some) => {
                 let actions = store.getActions();
-
-
+                                
                 expect(targetUrl).toMatch(new RegExp(/^(\/data\/?)$/));
                 expect(targetData).toEqual({
                     method: 'GET'
@@ -99,5 +98,5 @@ describe('Test Action Thunk', () => {
 
     afterAll(() => {
         window.fetch = windowFetch;
-    })
+    });
 });

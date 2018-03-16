@@ -6,8 +6,19 @@
   "license": "MIT",
   "scripts": {
     "start": "node Server/server.js",
-    "test": "jest --clearCache && jest",
-    "testCoverage": "jest --clearCache && jest --coverage"
+
+    "jestHelp": "node node_modules/jest/bin/jest.js -h",
+
+    "test": "jest",
+    "testComp1":"jest --testPathPattern comp1",
+    "testComp2":"jest --testPathPattern comp2",
+    
+    "jestClearCache": "jest --clearCache",
+
+    "testGlobalCoverage":"jest --coverage",
+    "testComp1Coverage":"jest --testPathPattern comp1 --coverage",
+    "testComp2Coverage":"jest --testPathPattern comp2 --coverage",
+    "testCoverage": "npm run testGlobalCoverage"
   },
   "dependencies": {
     "express": "4.16.3",

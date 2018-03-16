@@ -8,13 +8,13 @@ export default class Counter extends React.Component {
         this.onClickRender = this.onClickRender.bind(this);
         
         this.state = {
-            renderComponent: false
+            renderComponent: true
         };
     }
 
     onClickRender() {
         this.setState({
-            renderComponent: !this.state.renderComponent
+            renderComponent: this.state.renderComponent
         })
     }
 

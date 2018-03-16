@@ -7,7 +7,7 @@ import DependsOnState from '../../../ClientApp/modules/comp2/components/DependsO
 
 configure({ adapter: new Adapter() });
 
-describe('Test Counter', () => {
+describe('Test Comp2 Counter', () => {
     const count = 10;
     let ShallowComponent;
 

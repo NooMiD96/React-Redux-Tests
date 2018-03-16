@@ -14,8 +14,9 @@ export default function reducer(state = State, action) {
                 gettedData: 'Loading...'
             }
         case actionTypes.DATA_REQUEST_SUCCESS:
-            if(state.gettedData === 'Loading...')
+            if(action.payload === 'Loading...'){
                 return state;
+            }
             else
                 return {
                     ...state,

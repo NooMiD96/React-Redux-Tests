@@ -5,7 +5,6 @@ import { Provider } from 'react-redux';
 import { configure, mount, shallow } from 'enzyme';
 import sinon from 'sinon';
 import Adapter from 'enzyme-adapter-react-16';
-import { AsyncComponentLoader } from "../../../ClientApp/core/AsyncComponent";
 import Comp1, {Comp1 as Comp1Dumb } from '../../../ClientApp/modules/comp1/components/comp1';
 import * as actions from "../../../ClientApp/modules/comp1/actions";
 import * as actionTypes from "../../../ClientApp/modules/comp1/actionTypes";
@@ -64,16 +63,6 @@ describe('Test Comp1', () => {
         comp.setProps({gettedData: 'Loading...'});
         
         expect(spy.calledOnce).toBe(true);
-    });
-
-    it('+++ check dont request when gettedData !== "Loading..."', () => {
-        const spy = sinon.spy();
-        const comp = mount(<Comp1Dumb gettedData={null} fetchGet={spy}/>)
-
-        comp.setProps({gettedData: 'some data'});
-        
-        expect(spy.notCalled).toBe(true);
-
     });
 
     it('+++ check dont request when gettedData !== "Loading..."', () => {
