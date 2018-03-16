@@ -57,12 +57,32 @@ describe('Test Comp1', () => {
         expect(onButtonClick.calledOnce).toBe(true);
     });
 
-    it('+++ check requeast when gettedData === "Loading..."', () => {
+    it('+++ check request when gettedData === "Loading..."', () => {
         const spy = sinon.spy();
         const comp = mount(<Comp1Dumb gettedData={null} fetchGet={spy}/>)
 
         comp.setProps({gettedData: 'Loading...'});
         
         expect(spy.calledOnce).toBe(true);
+    });
+
+    it('+++ check dont request when gettedData !== "Loading..."', () => {
+        const spy = sinon.spy();
+        const comp = mount(<Comp1Dumb gettedData={null} fetchGet={spy}/>)
+
+        comp.setProps({gettedData: 'some data'});
+        
+        expect(spy.notCalled).toBe(true);
+
+    });
+
+    it('+++ check dont request when gettedData !== "Loading..."', () => {
+        const spy = sinon.spy();
+        const comp = mount(<Comp1Dumb gettedData={null} fetchGet={spy}/>)
+
+        comp.setProps({gettedData: 'some data'});
+
+        expect(spy.notCalled).toBe(true);
+        expect(comp.html().includes('getted data: some data')).toBe(true);
     });
 });

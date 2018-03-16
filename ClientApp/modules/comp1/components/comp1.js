@@ -30,9 +30,6 @@ export class Comp1 extends React.Component {
             <h1>Hellow from comp1!</h1>
             <h3>Click on button</h3>
             {
-                props.sendetData && <div>sendet data: {props.sendetData}</div>
-            }
-            {
                 props.gettedData && <div>getted data: {props.gettedData}</div>
             }
             <Counter count={props.count} />
