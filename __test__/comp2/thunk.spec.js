@@ -10,7 +10,7 @@ import * as ActionTypes from '../../ClientApp/modules/comp2/actionTypes';
 
 configure({ adapter: new Adapter() });
 
-describe('Test Action Thunk', () => {
+describe('Test Comp2 Action Thunk', () => {
     let windowFetch;
     beforeAll(() => {
         windowFetch = window.fetch;
@@ -19,7 +19,7 @@ describe('Test Action Thunk', () => {
     const data = '111';
     const middlewares = [ thunk ];
 
-    it('+++ Comp2 POST request', () => {
+    it('+++ POST request', () => {
         let targetUrl;
         let targetData;
         //create custom response
@@ -58,7 +58,7 @@ describe('Test Action Thunk', () => {
             });
     });
 
-    it('+++ Comp2 GET request', () => {
+    it('+++ GET request', () => {
         let targetUrl;
         let targetData;
         //create custom response

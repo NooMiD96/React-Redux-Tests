@@ -9,26 +9,26 @@ import * as Actions from '../../ClientApp/modules/comp2/actions';
 
 configure({ adapter: new Adapter() });
 
-describe('Test Comp1 Input', () => {
+describe('Test Comp2 Input', () => {
     let state;
 
     beforeEach(()=>{
         state = reducer(State, {type: '@@INIT'});
     })
 
-    it('+++ ', () => {
+    it('+++ check started data', () => {
         state = reducer(undefined, {type: '@@INIT'});
         
         expect(state.count).toBe(0);
         expect(state.gettedData).toBe(null);
     });
 
-    it('+++ ', () => {
+    it('+++ check initial data of model', () => {
         expect(state.count).toBe(0);
         expect(state.gettedData).toBe(null);
     });
 
-    it('+++ ', () => {
+    it('+++ check CountInc action', () => {
         const action = Actions.CountInc();
         const newState = reducer(state, action);
 
@@ -36,7 +36,7 @@ describe('Test Comp1 Input', () => {
         expect(newState).toEqual({...State, count: State.count + 1});
     });
 
-    it('+++ ', () => {
+    it('+++ check DataRequest action', () => {
         const newState = reducer(state, Actions.DataRequest());
         const equalNewState = reducer(newState, Actions.DataRequestSuccess('Loading...'));
         
@@ -45,7 +45,7 @@ describe('Test Comp1 Input', () => {
         expect(equalNewState === newState).toBe(true);
     });
 
-    it('+++ ', () => {
+    it('+++ check DataRequestSuccess action', () => {
         const data = 'some data';
         const newState = reducer(state, Actions.DataRequestSuccess(data));
 

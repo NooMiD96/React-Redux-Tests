@@ -19,7 +19,7 @@ describe('Test Comp2 Input', () => {
         expect(ShallowComponent.find('input').length).toBe(1);
     });
 
-    it('+++ ', () => {
+    it('+++ call fetch action and send input value when press "Enter"', () => {
         let sendData;
         const spy = sinon.spy((val) => {sendData = val});
         const text = '111aaa';
@@ -36,7 +36,7 @@ describe('Test Comp2 Input', () => {
         expect(ShallowComponent.state().text).toBe('');
     });
 
-    it('+++ ', () => {
+    it('+++ save in component state all key press', () => {
         let sendData;
         const spy = sinon.spy((val) => {sendData = val});
         const text = '111aaa';
